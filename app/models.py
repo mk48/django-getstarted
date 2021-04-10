@@ -28,9 +28,9 @@ class Company(models.Model):
     old_id = models.IntegerField(blank=True, null=True)
     name = models.CharField(unique=True, max_length=75)
     created_by = models.ForeignKey(
-        'User', models.DO_NOTHING, db_column='created_by', blank=True, null=True)
+        'User', models.DO_NOTHING, related_name='+', db_column='created_by', blank=True, null=True)
     updated_by = models.ForeignKey(
-        'User', models.DO_NOTHING, db_column='updated_by', blank=True, null=True)
+        'User', models.DO_NOTHING, related_name='+', db_column='updated_by', blank=True, null=True)
     shop = models.ForeignKey('Shop', models.DO_NOTHING, blank=True, null=True)
 
     class Meta:
@@ -57,9 +57,9 @@ class Medicine(models.Model):
     is_life_saving_drug = models.BooleanField(blank=True, null=True)
     minstock = models.SmallIntegerField(blank=True, null=True)
     created_by = models.ForeignKey(
-        'User', models.DO_NOTHING, db_column='created_by', blank=True, null=True)
+        'User', models.DO_NOTHING, related_name='+', db_column='created_by', blank=True, null=True)
     updated_by = models.ForeignKey(
-        'User', models.DO_NOTHING, db_column='updated_by', blank=True, null=True)
+        'User', models.DO_NOTHING,  related_name='+', db_column='updated_by', blank=True, null=True)
     shop = models.ForeignKey('Shop', models.DO_NOTHING, blank=True, null=True)
     company = models.ForeignKey(
         Company, models.DO_NOTHING, blank=True, null=True)
@@ -80,9 +80,9 @@ class MedicineGroup(models.Model):
     old_id = models.IntegerField(blank=True, null=True)
     name = models.CharField(unique=True, max_length=75)
     created_by = models.ForeignKey(
-        'User', models.DO_NOTHING, db_column='created_by', blank=True, null=True)
+        'User', models.DO_NOTHING,  related_name='+', db_column='created_by', blank=True, null=True)
     updated_by = models.ForeignKey(
-        'User', models.DO_NOTHING, db_column='updated_by', blank=True, null=True)
+        'User', models.DO_NOTHING,  related_name='+', db_column='updated_by', blank=True, null=True)
     shop = models.ForeignKey('Shop', models.DO_NOTHING, blank=True, null=True)
 
     class Meta:
@@ -97,9 +97,9 @@ class MedicineType(models.Model):
     old_id = models.IntegerField(blank=True, null=True)
     name = models.CharField(unique=True, max_length=75)
     created_by = models.ForeignKey(
-        'User', models.DO_NOTHING, db_column='created_by', blank=True, null=True)
+        'User', models.DO_NOTHING,  related_name='+', db_column='created_by', blank=True, null=True)
     updated_by = models.ForeignKey(
-        'User', models.DO_NOTHING, db_column='updated_by', blank=True, null=True)
+        'User', models.DO_NOTHING,  related_name='+', db_column='updated_by', blank=True, null=True)
     shop = models.ForeignKey('Shop', models.DO_NOTHING, blank=True, null=True)
 
     class Meta:
@@ -128,9 +128,9 @@ class Openingstock(models.Model):
     discount_percentage = models.DecimalField(max_digits=4, decimal_places=2)
     rate_with_discount = models.DecimalField(max_digits=8, decimal_places=2)
     created_by = models.ForeignKey(
-        'User', models.DO_NOTHING, db_column='created_by', blank=True, null=True)
+        'User', models.DO_NOTHING,  related_name='+', db_column='created_by', blank=True, null=True)
     updated_by = models.ForeignKey(
-        'User', models.DO_NOTHING, db_column='updated_by', blank=True, null=True)
+        'User', models.DO_NOTHING,  related_name='+', db_column='updated_by', blank=True, null=True)
     shop = models.ForeignKey('Shop', models.DO_NOTHING, blank=True, null=True)
     medicine = models.ForeignKey(
         Medicine, models.DO_NOTHING, blank=True, null=True)
@@ -169,9 +169,9 @@ class PurchaseMain(models.Model):
     adjustment_amount = models.DecimalField(max_digits=8, decimal_places=2)
     net_amount = models.DecimalField(max_digits=10, decimal_places=2)
     created_by = models.ForeignKey(
-        'User', models.DO_NOTHING, db_column='created_by', blank=True, null=True)
+        'User', models.DO_NOTHING,  related_name='+', db_column='created_by', blank=True, null=True)
     updated_by = models.ForeignKey(
-        'User', models.DO_NOTHING, db_column='updated_by', blank=True, null=True)
+        'User', models.DO_NOTHING,  related_name='+', db_column='updated_by', blank=True, null=True)
     account_year = models.ForeignKey(
         AccountYear, models.DO_NOTHING, blank=True, null=True)
     supplier = models.ForeignKey(
@@ -247,9 +247,9 @@ class Supplier(models.Model):
     mobile = models.CharField(max_length=50, blank=True, null=True)
     remark = models.CharField(max_length=100, blank=True, null=True)
     created_by = models.ForeignKey(
-        'User', models.DO_NOTHING, db_column='created_by', blank=True, null=True)
+        'User', models.DO_NOTHING,  related_name='+', db_column='created_by', blank=True, null=True)
     updated_by = models.ForeignKey(
-        'User', models.DO_NOTHING, db_column='updated_by', blank=True, null=True)
+        'User', models.DO_NOTHING,  related_name='+', db_column='updated_by', blank=True, null=True)
     shop = models.ForeignKey(Shop, models.DO_NOTHING, blank=True, null=True)
 
     class Meta:
